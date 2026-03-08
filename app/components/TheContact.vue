@@ -26,13 +26,16 @@
 
           <!-- Recent Messages Display -->
           <div class="recent-messages mt-8">
-            <h3 class="text-lg font-bold text-[var(--accent-primary)] mb-4">Recent Messages</h3>
+            <h3 class="text-lg font-bold text-[var(--accent-primary)] mb-4">Recent Anonymous Messages</h3>
             <div v-if="loadingMessages" class="text-sm text-gray-400">Loading recent messages...</div>
             <div v-else-if="recentMessages.length === 0" class="text-sm text-gray-500">No messages yet.</div>
-            <div v-else class="space-y-3">
-              <div v-for="msg in recentMessages" :key="msg.chatID" class="bg-[rgba(255,255,255,0.02)] border border-[var(--card-border)] p-3 rounded-lg">
-                <p class="text-xs text-gray-400 font-semibold mb-1">*****</p>
-                <p class="text-sm text-[var(--text-secondary)]">{{ msg.chat }}</p>
+            <div v-else class="recent-messages-grid">
+              <div v-for="msg in recentMessages" :key="msg.chatID" class="message-card">
+                <div class="message-card-header">
+                  <span class="message-avatar">A</span>
+                  <span class="message-username">*****</span>
+                </div>
+                <p class="message-content">{{ msg.chat }}</p>
               </div>
             </div>
           </div>
@@ -299,5 +302,74 @@ const sendMessage = async () => {
     grid-template-columns: 1fr;
     padding: 2rem;
   }
+}
+
+.recent-messages-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-primary);
+  opacity: 0.5;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.message-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.message-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.message-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.message-username {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-tertiary, #9ca3af);
+  letter-spacing: 2px;
+}
+
+.message-content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding-left: 2.25rem;
 }
 </style>
