@@ -1,7 +1,10 @@
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 async function seed() {
-  const pool = mysql.createPool('mysql://PadiWeb_hunterred:3717c76195c56137ab8fbc135bec29204d4058ff@a2k6v2.h.filess.io:3307/PadiWeb_hunterred');
+  const pool = mysql.createPool(process.env.DATABASE_URL);
   
   try {
     const [result] = await pool.query(`

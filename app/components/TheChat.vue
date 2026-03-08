@@ -40,8 +40,9 @@
         </div>
 
         <div 
-          v-for="msg in messages" 
+          v-for="(msg, index) in messages" 
           :key="msg.chatID"
+          v-show="index < messages.length - 5"
           class="flex flex-col bg-[var(--bg-secondary)] p-3 rounded-lg border border-[var(--card-border)] shadow-sm"
         >
           <span class="font-semibold text-sm text-[var(--accent-primary)] mb-1">{{ msg.username }}</span>
