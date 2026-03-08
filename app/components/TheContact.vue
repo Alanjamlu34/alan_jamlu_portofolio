@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea v-model="formMessage" id="message" rows="5" placeholder="send me an anonimous message" required></textarea>
+              <textarea v-model="formMessage" id="message" rows="5" placeholder="send me an anonimous message, thought, question, or anything you want to share with me." required></textarea>
             </div>
             <button type="submit" :disabled="sending" class="btn btn-primary btn-full">
               {{ sending ? 'Sending...' : 'Send Message' }}
@@ -25,7 +25,7 @@
           </form>
 
           <!-- Recent Messages Display -->
-          <div class="recent-messages mt-8">
+          <!-- <div class="recent-messages mt-8">
             <h3 class="text-lg font-bold text-[var(--accent-primary)] mb-4">Recent Anonymous Messages</h3>
             <div v-if="loadingMessages" class="text-sm text-gray-400">Loading recent messages...</div>
             <div v-else-if="recentMessages.length === 0" class="text-sm text-gray-500">No messages yet.</div>
@@ -38,17 +38,17 @@
                 <p class="message-content">{{ msg.chat }}</p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="contact__info">
           <div class="info-card">
             <h3>Direct Contact</h3>
             <div class="contact-item">
-              <img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-email-icon-png-image_5065641.jpg" alt="Email" class="contact-icon" />
+              <!-- <img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-email-icon-png-image_5065641.jpg" alt="Email" class="contact-icon" /> -->
               <span>alanjamlu34@email.com</span>
             </div>
             <a href="https://wa.me/6281338827474" target="_blank" class="btn-whatsapp">
-              <img src="https://img.freepik.com/premium-psd/whatsapp-style-green-circular-chat-call-icon-messaging-apps_705838-13521.jpg?semt=ais_hybrid&w=740&q=80" alt="WhatsApp" class="contact-icon" />
+              <!-- <img src="https://img.freepik.com/premium-psd/whatsapp-style-green-circular-chat-call-icon-messaging-apps_705838-13521.jpg?semt=ais_hybrid&w=740&q=80" alt="WhatsApp" class="contact-icon" /> -->
               WhatsApp Me
             </a>
           </div>

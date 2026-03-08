@@ -18,16 +18,16 @@
         <div class="about__stats">
           <div class="stat-item glass flow-in">
             <span class="stat-label">Clients</span>
-            <span class="stat-value">20+</span>
+            <span class="stat-value">5+</span>
           </div>
           <div class="stat-item glass flow-in flow-stagger-1">
             <span class="stat-label">Projects</span>
-            <span class="stat-value">50+</span>
+            <span class="stat-value">12+</span>
           </div>
-          <div class="stat-item glass flow-in flow-stagger-2">
+          <!-- <div class="stat-item glass flow-in flow-stagger-2">
             <span class="stat-label">Success Rate</span>
             <span class="stat-value">99%</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
