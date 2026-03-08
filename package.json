@@ -1,0 +1,28 @@
+{
+  "name": "alan_jamlu_portofolio",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@vueuse/motion": "^3.0.3",
+    "mysql2": "^3.19.0",
+    "nuxt": "^3.12.0",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.577.0",
+    "motion": "^12.35.0",
+    "radix-vue": "^1.9.17",
+    "shadcn-nuxt": "^2.4.3",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
