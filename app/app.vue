@@ -1,5 +1,9 @@
 <template>
   <div class="app-wrapper">
+    <!-- Decorative floating blobs -->
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="blob blob--3"></div>
     <TheHeader />
     <main>
       <TheHero />
@@ -35,21 +39,48 @@ useHead({
   position: relative;
   min-height: 100vh;
   z-index: 0;
+  background: var(--bg-primary);
 }
 
-.app-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20%;
-  background: linear-gradient(to top, rgba(59, 130, 246, 0.15), transparent);
+/* Floating pastel blobs for organic depth */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
   pointer-events: none;
   z-index: -1;
+  animation: blobFloat 20s ease-in-out infinite;
 }
 
-/* Custom scrollbar for premium feel */
+.blob--1 {
+  width: 400px;
+  height: 400px;
+  background: var(--mint);
+  top: 10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.blob--2 {
+  width: 350px;
+  height: 350px;
+  background: var(--lavender);
+  top: 50%;
+  right: -8%;
+  animation-delay: -7s;
+}
+
+.blob--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--orange);
+  bottom: 10%;
+  left: 30%;
+  animation-delay: -14s;
+}
+
+/* Custom scrollbar — clay feel */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -59,12 +90,13 @@ useHead({
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--card-border);
-  border-radius: 5px;
+  background: linear-gradient(180deg, var(--mint-soft), var(--lavender-soft));
+  border-radius: 10px;
+  border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-primary);
+  background: linear-gradient(180deg, var(--mint), var(--lavender));
 }
 
 html {

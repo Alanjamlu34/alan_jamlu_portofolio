@@ -5,7 +5,7 @@
         <h2 class="section-title text-gradient">Let's Collaborate</h2>
         <p class="section-subtitle">Interested in working together? Send me a message and let's discuss your vision.</p>
       </div>
-      <div class="contact__grid clay flow-in">
+      <div class="contact__grid flow-in">
         <div class="contact-left-col">
           <form @submit.prevent="sendMessage" class="contact__form">
             <div class="form-group">
@@ -23,41 +23,22 @@
             <p v-if="successMsg" class="success-message">{{ successMsg }}</p>
             <p v-if="errorMsg" class="error-message">{{ errorMsg }}</p>
           </form>
-
-          <!-- Recent Messages Display -->
-          <!-- <div class="recent-messages mt-8">
-            <h3 class="text-lg font-bold text-[var(--accent-primary)] mb-4">Recent Anonymous Messages</h3>
-            <div v-if="loadingMessages" class="text-sm text-gray-400">Loading recent messages...</div>
-            <div v-else-if="recentMessages.length === 0" class="text-sm text-gray-500">No messages yet.</div>
-            <div v-else class="recent-messages-grid">
-              <div v-for="msg in recentMessages" :key="msg.chatID" class="message-card">
-                <div class="message-card-header">
-                  <span class="message-avatar">A</span>
-                  <span class="message-username">*****</span>
-                </div>
-                <p class="message-content">{{ msg.chat }}</p>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="contact__info">
-          <div class="info-card">
+          <div class="info-card info-card--mint">
             <h3>Direct Contact</h3>
             <div class="contact-item">
-              <!-- <img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-email-icon-png-image_5065641.jpg" alt="Email" class="contact-icon" /> -->
               <span>alanjamlu34@email.com</span>
             </div>
             <a href="https://wa.me/6281338827474" target="_blank" class="btn-whatsapp">
-              <!-- <img src="https://img.freepik.com/premium-psd/whatsapp-style-green-circular-chat-call-icon-messaging-apps_705838-13521.jpg?semt=ais_hybrid&w=740&q=80" alt="WhatsApp" class="contact-icon" /> -->
               WhatsApp Me
             </a>
           </div>
-          <div class="info-card">
+          <div class="info-card info-card--lavender">
             <h3>Social Profiles</h3>
             <div class="social-grid">
               <a href="https://www.linkedin.com/in/paulinus-alan-sanjaya-jamlu/" target="_blank" class="social-link">LinkedIn</a>
               <a href="https://github.com/Alanjamlu34" target="_blank" class="social-link">Github</a>
-              <!-- <a href="#" class="social-link">Twitter</a> -->
             </div>
           </div>
         </div>
@@ -134,11 +115,26 @@ const sendMessage = async () => {
   margin-bottom: 3rem;
 }
 
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  padding: 3rem;
-  gap: 3rem;
+  padding: 2.5rem;
+  gap: 2.5rem;
+  background: white;
+  border-radius: var(--clay-radius);
+  box-shadow: var(--clay-shadow-deep), var(--clay-shadow-in);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
 }
 
 .form-group {
@@ -150,14 +146,15 @@ const sendMessage = async () => {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .form-note {
   font-size: 0.8rem;
-  color: var(--text-tertiary, #9ca3af);
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
   font-style: italic;
+  opacity: 0.8;
 }
 
 .success-message {
@@ -165,6 +162,7 @@ const sendMessage = async () => {
   font-size: 0.9rem;
   margin-top: 0.8rem;
   text-align: center;
+  font-weight: 600;
 }
 
 .error-message {
@@ -172,6 +170,7 @@ const sendMessage = async () => {
   font-size: 0.9rem;
   margin-top: 0.8rem;
   text-align: center;
+  font-weight: 600;
 }
 
 .contact-left-col {
@@ -181,22 +180,23 @@ const sendMessage = async () => {
 
 .form-group input, .form-group textarea {
   width: 100%;
-  padding: 1rem;
-  background: #f8fafc;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
-  color: #1f2937;
+  padding: 1rem 1.25rem;
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--clay-radius-sm);
+  color: var(--text-primary);
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 5px 5px 12px rgba(0, 0, 0, 0.04), inset -5px -5px 12px rgba(255, 255, 255, 0.9);
 }
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
   border-color: var(--mint);
   background: white;
-  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.08), inset -6px -6px 12px rgba(255, 255, 255, 1);
+  box-shadow: inset 6px 6px 14px rgba(0, 0, 0, 0.05), inset -6px -6px 14px rgba(255, 255, 255, 1);
+  transform: scale(1.01);
 }
 
 .btn-full {
@@ -206,18 +206,37 @@ const sendMessage = async () => {
 .contact__info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.info-card {
+  padding: 1.75rem;
+  border-radius: var(--clay-radius-sm);
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  border: 1.5px solid transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.info-card--mint {
+  background: var(--mint-soft);
+  border-color: rgba(126, 249, 255, 0.25);
+}
+
+.info-card--lavender {
+  background: var(--lavender-soft);
+  border-color: rgba(230, 230, 250, 0.4);
+}
+
+.info-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--clay-shadow-deep), var(--clay-shadow-in);
 }
 
 .info-card h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent-primary);
-}
-
-.info-card p {
-  color: var(--text-secondary);
-  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .contact-item {
@@ -225,152 +244,62 @@ const sendMessage = async () => {
   align-items: center;
   gap: 0.8rem;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 1rem;
-}
-
-.contact-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: white;
-  transition: transform 0.3s ease;
-}
-
-.contact-item:hover .contact-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.info-card {
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
-  transition: all 0.3s ease;
-}
-
-.info-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  background-color: #25D366;
+  gap: 0.6rem;
+  background: #25D366;
   color: white !important;
-  padding: 0.6rem 1.2rem;
-  border-radius: 2rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--clay-radius-pill);
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: none;
+  box-shadow: 6px 6px 15px rgba(37, 211, 102, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-whatsapp:hover {
-  background-color: #128C7E;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  background: #128C7E;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 8px 8px 20px rgba(37, 211, 102, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .social-grid {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .social-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
-  border: 1px solid var(--card-border);
+  padding: 0.5rem 1.1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--clay-radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
+  box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.8), inset -3px -3px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .social-link:hover {
   background: var(--accent-primary);
-  border-color: var(--accent-primary);
   color: white;
+  border-color: var(--accent-primary);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: var(--clay-shadow-out);
 }
 
 @media (max-width: 768px) {
   .contact__grid {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 1.75rem;
   }
-}
-
-.recent-messages-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.message-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  padding: 1rem 1.25rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.message-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--accent-primary);
-  opacity: 0.5;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-.message-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateX(5px);
-}
-
-.message-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.message-avatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: white;
-}
-
-.message-username {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-tertiary, #9ca3af);
-  letter-spacing: 2px;
-}
-
-.message-content {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  font-style: italic;
-  padding-left: 2.25rem;
 }
 </style>

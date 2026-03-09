@@ -2,7 +2,7 @@
   <section id="hero" class="hero">
     <div class="container hero__grid">
       <div class="hero__content">
-        <div class="hero__badge clay">
+        <div class="hero__badge">
           <span class="pulse"></span> Available for new projects
         </div>
         <h1 class="hero__title">
@@ -18,8 +18,8 @@
         </div>
       </div>
       <div class="hero__image-container flow-in flow-stagger-2">
-        <div class="hero__image clay">
-          <img src="/images/hero-bg.png" alt="Premium Developer Setup" />
+        <div class="hero__image">
+          <img src="../public/images/hero-bg.png" alt="Premium Developer Setup" />
         </div>
       </div>
     </div>
@@ -50,30 +50,36 @@
 .hero__badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.6rem;
+  padding: 0.6rem 1.25rem;
   font-size: 0.85rem;
-  font-weight: 500;
-  border-radius: 99px;
+  font-weight: 600;
+  border-radius: var(--clay-radius-pill);
   margin-bottom: 2rem;
   color: #0b4f52;
-  border: none;
-  background: var(--mint);
+  border: 1.5px solid rgba(126, 249, 255, 0.3);
+  background: var(--mint-soft);
   box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero__badge:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--clay-shadow-deep), var(--clay-shadow-in);
 }
 
 .pulse {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-primary);
+  width: 9px;
+  height: 9px;
+  background: #34d399;
   border-radius: 50%;
   animation: pulse-animation 2s infinite;
 }
 
 @keyframes pulse-animation {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(52, 211, 153, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
 }
 
 .hero__title {
@@ -87,16 +93,18 @@
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
+  line-height: 1.7;
 }
 
 .highlight {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .underline {
-  border-bottom: 2px solid var(--accent-primary);
+  border-bottom: 2.5px solid var(--accent-primary);
   display: inline-block;
+  padding-bottom: 1px;
 }
 
 .hero__cta {
@@ -111,23 +119,31 @@
 }
 
 .hero__image {
-  border-radius: 35px;
+  border-radius: var(--clay-radius);
   overflow: hidden;
-  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  box-shadow: var(--clay-shadow-deep), var(--clay-shadow-in);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   aspect-ratio: 4/3;
   width: 100%;
   max-width: 500px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero__image:hover {
+  transform: translateY(-8px) scale(1.02) rotate(0.5deg);
+  box-shadow: 18px 18px 35px rgba(0, 0, 0, 0.12), var(--clay-shadow-in);
+  border-color: var(--mint);
 }
 
 .hero__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hero__image:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 @media (max-width: 992px) {
@@ -148,11 +164,12 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 6rem;
+    padding-top: 7rem;
   }
   
   .hero__cta {
     flex-direction: column;
+    align-items: center;
   }
 }
 </style>

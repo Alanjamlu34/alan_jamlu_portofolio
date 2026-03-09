@@ -6,7 +6,7 @@
         <p class="section-subtitle">Real-world solutions I've developed from concept to deployment.</p>
       </div>
       <div class="projects__grid">
-        <div v-for="project in projects" :key="project.id" class="project-card clay glass group">
+        <div v-for="project in projects" :key="project.id" class="project-card">
           <div class="project-card__image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-card__overlay">
@@ -40,34 +40,6 @@ const projects = [
     demo: 'https://alan-jamlu.vercel.app/',
     github: 'https://github.com/Alanjamlu34'
   }
-  // ,
-  // {
-  //   id: 2,
-  //   title: 'E-Commerce Platform',
-  //   description: 'A modern shopping experience built with Nuxt.js, featuring a robust shopping cart and complex payment integration.',
-  //   image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1032&auto=format&fit=crop',
-  //   tags: ['Nuxt 3', 'Vue Storefront', 'Stripe'],
-  //   demo: '#',
-  //   github: 'https://github.com/Alanjamlu34'
-  // },
-  // {
-  //   id: 3,
-  //   title: 'SaaS Dashboard',
-  //   description: 'High-performance real-time data visualization dashboard developed for enterprise-level analytics.',
-  //   image: 'https://images.unsplash.com/photo-1551288049-bb8c803er832?q=80&w=1032&auto=format&fit=crop',
-  //   tags: ['Vue 3', 'D3.js', 'Firebase'],
-  //   demo: '#',
-  //   github: 'https://github.com/Alanjamlu34'
-  // },
-  // {
-  //   id: 4,
-  //   title: 'Personal Finance Tracker',
-  //   description: 'Intuitive finance tracker for personal budget management with automated categorization.',
-  //   image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000&auto=format&fit=crop',
-  //   tags: ['Nuxt.js', 'Typescript', 'Prisma'],
-  //   demo: '#',
-  //   github: 'https://github.com/Alanjamlu34'
-  // }
 ]
 </script>
 
@@ -95,7 +67,7 @@ const projects = [
 }
 
 .project-card {
-  border-radius: 35px;
+  border-radius: var(--clay-radius);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
@@ -103,30 +75,31 @@ const projects = [
   flex-direction: column;
   background: white;
   box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
 }
 
 .project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: var(--accent-primary);
-  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.12), var(--clay-shadow-in);
+  transform: translateY(-10px) scale(1.02) rotate(0.3deg);
+  box-shadow: var(--clay-shadow-deep), var(--clay-shadow-in);
+  border-color: var(--lavender);
 }
 
 .project-card__image {
   position: relative;
   aspect-ratio: 16/9;
   overflow: hidden;
+  border-radius: var(--clay-radius) var(--clay-radius) 0 0;
 }
 
 .project-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card:hover .project-card__image img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .project-card__overlay {
@@ -135,13 +108,14 @@ const projects = [
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 17, 21, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  backdrop-filter: blur(4px);
+  transition: opacity 0.4s ease;
 }
 
 .project-card:hover .project-card__overlay {
@@ -162,7 +136,7 @@ const projects = [
 
 .project-card__tags {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin-bottom: 1rem;
   flex-wrap: wrap;
 }
@@ -170,11 +144,18 @@ const projects = [
 .tag {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.1);
-  padding: 0.35rem 0.75rem;
-  border-radius: 99px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #4b4b8b;
+  background: var(--lavender-soft);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--clay-radius-pill);
+  border: 1px solid rgba(230, 230, 250, 0.5);
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.8), inset -2px -2px 5px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  transform: scale(1.08);
+  background: var(--lavender);
 }
 
 .project-card__title {
@@ -186,7 +167,12 @@ const projects = [
 .project-card__description {
   font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.88rem;
 }
 
 @media (max-width: 480px) {
