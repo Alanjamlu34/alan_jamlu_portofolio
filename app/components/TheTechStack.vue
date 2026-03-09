@@ -6,7 +6,7 @@
         <p class="section-subtitle">The tools and technologies I use to bring ideas to life.</p>
       </div>
       <div class="skills__grid">
-        <div v-for="skill in skills" :key="skill.name" class="skill-card glass" :style="{ borderColor: skill.color }">
+        <div v-for="skill in skills" :key="skill.name" class="skill-card clay" :style="{ borderColor: skill.color }">
           <div class="skill-card__icon" :style="{ color: skill.color }">
             <img :src="skill.iconUrl" alt="icon" style="width: 64px; height: 64px; border-radius: 12px; object-fit: cover;" />
           </div>
@@ -51,16 +51,18 @@ const skills = [
 
 .skill-card {
   padding: 2rem;
-  border-radius: 1.5rem;
+  border-radius: var(--clay-radius);
   text-align: center;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid var(--card-border);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  background: white;
 }
 
 .skill-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-8px) scale(1.05);
   border-color: currentColor;
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.1), var(--clay-shadow-in);
 }
 
 .skill-card__icon {

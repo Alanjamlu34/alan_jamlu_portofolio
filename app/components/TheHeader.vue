@@ -1,5 +1,5 @@
 <template>
-  <header class="header glass" :class="{ 'header--scrolled': isScrolled }">
+  <header class="header clay" :class="{ 'header--scrolled': isScrolled }">
     <div class="container header__content">
       <div class="header__logo">
         <span class="text-gradient fw-bold fs-large">ALAN.DEV</span>
@@ -60,6 +60,9 @@ const fsLarge = 'clamp(1.2rem, 2vw, 1.4rem)'
   z-index: 1000;
   padding: 1.25rem 0;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 0 0 35px 35px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), var(--clay-shadow-in);
 }
 
 .header--scrolled {

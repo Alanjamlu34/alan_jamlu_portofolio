@@ -1,29 +1,17 @@
 <template>
+  <!-- Chat Feature (Button Removed as per request) -->
   <div class="fixed bottom-6 right-6 z-50">
-    <!-- Chat Button -->
-    <button 
-      @click="toggleChat"
-      class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition-transform hover:scale-105"
-      aria-label="Toggle Chat"
-    >
-      <svg v-if="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-      </svg>
-      <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
 
     <!-- Chat Window -->
     <div 
       v-if="isOpen"
-      class="absolute bottom-16 right-0 w-80 sm:w-96 bg-[var(--bg-secondary)] border border-[var(--card-border)] rounded-xl shadow-2xl flex flex-col overflow-hidden"
-      style="height: 450px; max-height: calc(100vh - 120px);"
+      class="clay glass absolute bottom-0 right-0 w-80 sm:w-96 flex flex-col overflow-hidden"
+      style="height: 480px; max-height: calc(100vh - 120px); background: rgba(255, 255, 255, 0.7);"
     >
       <!-- Header -->
-      <div class="p-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md">
+      <div class="p-5 bg-gradient-to-r from-[var(--mint)] to-[var(--lavender)] text-[#1f2937] shadow-sm border-b border-white/50">
         <h3 class="font-bold text-lg">Anonymous Chat</h3>
-        <p class="text-xs text-blue-100">Ask a question or just say hi!</p>
+        <p class="text-xs opacity-75">Ask a question or just say hi!</p>
       </div>
 
       <!-- Messages Area -->
@@ -71,7 +59,8 @@
           <button 
             type="submit" 
             :disabled="sending"
-            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition-colors disabled:opacity-50"
+            class="clay-orange px-6 py-2 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+            style="border: none; box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);"
           >
             {{ sending ? '...' : 'Send' }}
           </button>

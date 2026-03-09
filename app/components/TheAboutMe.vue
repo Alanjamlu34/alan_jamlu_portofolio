@@ -2,12 +2,12 @@
   <section id="about" class="about">
     <div class="container about__grid">
       <div class="about__image-container flow-in">
-        <div class="about__image glass">
+        <div class="about__image clay">
           <img src="/profile.jpg" alt="Alan Jamlu Profile" class="img-fluid" />
         </div>
-        <div class="about__experience glass">
-          <div class="exp-number">2+</div>
-          <div class="exp-text">Years Experience</div>
+        <div class="about__experience clay glass clay-mint">
+          <div class="exp-number" style="color: #0b4f52">2+</div>
+          <div class="exp-text" style="color: #0b4f52">Years Experience</div>
         </div>
       </div>
       <div class="about__content">
@@ -16,13 +16,13 @@
           I'm a Web Developer with a passion for building clean, efficient, and user-friendly web solutions using <span class="underline">Nuxt.js</span> and <span class="underline">Vue.js</span>. My journey in tech is driven by an obsession with <span class="highlight">Frontend Perfection</span>.
         </p>
         <div class="about__stats">
-          <div class="stat-item glass flow-in">
-            <span class="stat-label">Clients</span>
-            <span class="stat-value">5+</span>
+          <div class="stat-item clay glass clay-lavender flow-in">
+            <span class="stat-label" style="color: #4b4b8b">Clients</span>
+            <span class="stat-value" style="color: #4b4b8b">5+</span>
           </div>
-          <div class="stat-item glass flow-in flow-stagger-1">
-            <span class="stat-label">Projects</span>
-            <span class="stat-value">12+</span>
+          <div class="stat-item clay glass clay-orange flow-in flow-stagger-1">
+            <span class="stat-label" style="color: #7b4300">Projects</span>
+            <span class="stat-value" style="color: #7b4300">12+</span>
           </div>
           <!-- <div class="stat-item glass flow-in flow-stagger-2">
             <span class="stat-label">Success Rate</span>
@@ -48,16 +48,13 @@
 
 .about__image {
   aspect-ratio: 1;
-  border-radius: 2rem;
-  overflow: hidden;
-  padding: 2rem;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
-  transition: all 0.5s ease;
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .about__image:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 40px 70px -15px rgba(59, 130, 246, 0.3);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.35), var(--clay-shadow-in);
 }
 
 .about__image img {
@@ -71,9 +68,8 @@
   bottom: -2rem;
   right: -1rem;
   padding: 1.5rem 2rem;
-  border-radius: 1.5rem;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .exp-number {
@@ -127,9 +123,7 @@
 }
 
 .stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-5px) scale(1.05);
 }
 
 .stat-label {

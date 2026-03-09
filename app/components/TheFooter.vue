@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="container footer__note flow-in">
-      <div class="important-note glass">
+      <div class="important-note">
         <h3>Service Focus & Important Note</h3>
         <p>
           I specialize exclusively in building <strong>one-page static web apps</strong> such as personal portfolios, simple business pages, and landing pages.
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="footer__bottom container flow-in">
-      <p>&copy; 2024 Alan Jamlu. All rights reserved.</p>
+      <p>&copy; 2026 Alan Jamlu. All rights reserved.</p>
       <div class="footer__links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -35,7 +35,8 @@
 <style scoped>
 .footer {
   padding: 6rem 0 3rem;
-  background: var(--bg-secondary);
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .footer__content {
@@ -89,24 +90,43 @@
 }
 
 .important-note {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  border-left: 4px solid var(--accent-primary);
-  background: rgba(59, 130, 246, 0.05);
+  padding: 1.5rem 2rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  /* Combined Claymorphism and Glassmorphism */
+  box-shadow: 
+    16px 16px 32px rgba(0, 0, 0, 0.1), 
+    inset 10px 10px 20px rgba(255, 255, 255, 0.9), 
+    inset -10px -10px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.important-note:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 
+    20px 20px 40px rgba(0, 0, 0, 0.12), 
+    inset 10px 10px 20px rgba(255, 255, 255, 0.95), 
+    inset -10px -10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .important-note h3 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--accent-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
 }
 
 .important-note p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }
 
 .important-note p:last-child {

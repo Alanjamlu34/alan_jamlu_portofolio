@@ -6,7 +6,7 @@
         <p class="section-subtitle">Real-world solutions I've developed from concept to deployment.</p>
       </div>
       <div class="projects__grid">
-        <div v-for="project in projects" :key="project.id" class="project-card glass group">
+        <div v-for="project in projects" :key="project.id" class="project-card clay glass group">
           <div class="project-card__image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-card__overlay">
@@ -95,17 +95,21 @@ const projects = [
 }
 
 .project-card {
-  border-radius: 2rem;
+  border-radius: 35px;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: white;
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
   border-color: var(--accent-primary);
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.12), var(--clay-shadow-in);
 }
 
 .project-card__image {

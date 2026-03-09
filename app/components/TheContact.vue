@@ -5,7 +5,7 @@
         <h2 class="section-title text-gradient">Let's Collaborate</h2>
         <p class="section-subtitle">Interested in working together? Send me a message and let's discuss your vision.</p>
       </div>
-      <div class="contact__grid glass flow-in">
+      <div class="contact__grid clay flow-in">
         <div class="contact-left-col">
           <form @submit.prevent="sendMessage" class="contact__form">
             <div class="form-group">
@@ -138,7 +138,6 @@ const sendMessage = async () => {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   padding: 3rem;
-  border-radius: 2rem;
   gap: 3rem;
 }
 
@@ -183,19 +182,21 @@ const sendMessage = async () => {
 .form-group input, .form-group textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--card-border);
-  border-radius: 0.75rem;
-  color: white;
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  color: #1f2937;
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.3s ease;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
 }
 
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent-primary);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--mint);
+  background: white;
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.08), inset -6px -6px 12px rgba(255, 255, 255, 1);
 }
 
 .btn-full {
@@ -243,15 +244,15 @@ const sendMessage = async () => {
 
 .info-card {
   padding: 1.5rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1.5rem;
+  background: var(--bg-secondary);
   border: 1px solid var(--card-border);
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
   transition: all 0.3s ease;
 }
 
 .info-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-5px) scale(1.02);
   border-color: rgba(59, 130, 246, 0.3);
 }
 
