@@ -1,11 +1,11 @@
 <template>
   <section id="contact" class="contact">
     <div class="container container--small">
-      <div class="section-header flow-in">
+      <div :ref="setRef" class="section-header reveal">
         <h2 class="section-title text-gradient">Let's Collaborate</h2>
         <p class="section-subtitle">Interested in working together? Send me a message and let's discuss your vision.</p>
       </div>
-      <div class="contact__grid flow-in">
+      <div :ref="setRef" class="contact__grid reveal stagger-1">
         <div class="contact-left-col">
           <form @submit.prevent="sendMessage" class="contact__form">
             <div class="form-group">
@@ -25,7 +25,7 @@
           </form>
         </div>
         <div class="contact__info">
-          <div class="info-card info-card--mint">
+          <div :ref="setRef" class="info-card info-card--mint reveal reveal-right stagger-2">
             <h3>Direct Contact</h3>
             <div class="contact-item">
               <span>alanjamlu34@email.com</span>
@@ -34,7 +34,7 @@
               WhatsApp Me
             </a>
           </div>
-          <div class="info-card info-card--lavender">
+          <div :ref="setRef" class="info-card info-card--lavender reveal reveal-right stagger-3">
             <h3>Social Profiles</h3>
             <div class="social-grid">
               <a href="https://www.linkedin.com/in/paulinus-alan-sanjaya-jamlu/" target="_blank" class="social-link">LinkedIn</a>
@@ -49,6 +49,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+const { setRef } = useRevealGroup()
 
 const formUsername = ref('')
 const formMessage = ref('')

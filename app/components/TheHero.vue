@@ -2,22 +2,22 @@
   <section id="hero" class="hero">
     <div class="container hero__grid">
       <div class="hero__content">
-        <div class="hero__badge">
+        <div class="hero__badge hero-anim-badge">
           <span class="pulse"></span> Available for new projects
         </div>
-        <h1 class="hero__title">
+        <h1 class="hero__title hero-anim-title">
           Building Scalable <br />
           <span class="text-gradient">Digital Experiences</span>
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle hero-anim-subtitle">
           I'm <span class="highlight">Alan Jamlu</span>, a Fullstack Web Developer specialized in modern frameworks like <span class="underline">Nuxt.js</span> & <span class="underline">Vue.js</span>. I help brands turn complex ideas into high-performance, landing pages and web applications.
         </p>
-        <div class="hero__cta">
+        <div class="hero__cta hero-anim-cta">
           <a href="#projects" class="btn btn-primary">See My Work</a>
           <a href="#about" class="btn btn-secondary">More About Me</a>
         </div>
       </div>
-      <div class="hero__image-container flow-in flow-stagger-2">
+      <div class="hero__image-container hero-anim-image">
         <div class="hero__image">
           <img src="../public/images/hero-bg.png" alt="Premium Developer Setup" />
         </div>

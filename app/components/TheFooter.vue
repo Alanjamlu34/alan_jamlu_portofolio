@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="container footer__content flow-in">
+    <div :ref="setRef" class="container footer__content reveal">
       <div class="footer__brand">
         <h2 class="text-gradient">ALAN.DEV</h2>
         <p>I build solutions that solve business problems and provide delightful user experiences.</p>
@@ -10,7 +10,7 @@
         <a href="https://github.com/Alanjamlu34" target="_blank" class="social-pill" title="Github">Github</a>
       </div>
     </div>
-    <div class="container footer__note flow-in">
+    <div :ref="setRef" class="container footer__note reveal stagger-1">
       <div class="important-note">
         <h3>Service Focus & Important Note</h3>
         <p>
@@ -21,7 +21,7 @@
         </p>
       </div>
     </div>
-    <div class="footer__bottom container flow-in">
+    <div :ref="setRef" class="footer__bottom container reveal stagger-2">
       <p>&copy; 2026 Alan Jamlu. All rights reserved.</p>
       <div class="footer__links">
         <a href="#">Privacy Policy</a>
@@ -30,6 +30,10 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+const { setRef } = useRevealGroup()
+</script>
 
 <style scoped>
 .footer {

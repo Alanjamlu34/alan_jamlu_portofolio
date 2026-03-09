@@ -2,11 +2,17 @@
   <section id="projects" class="projects">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title text-gradient">Featured Projects</h2>
-        <p class="section-subtitle">Real-world solutions I've developed from concept to deployment.</p>
+        <h2 :ref="setRef" class="section-title text-gradient reveal">Featured Projects</h2>
+        <p :ref="setRef" class="section-subtitle reveal stagger-1">Real-world solutions I've developed from concept to deployment.</p>
       </div>
       <div class="projects__grid">
-        <div v-for="project in projects" :key="project.id" class="project-card">
+        <div
+          v-for="(project, index) in projects"
+          :key="project.id"
+          :ref="setRef"
+          class="project-card reveal"
+          :class="'stagger-' + (index + 2)"
+        >
           <div class="project-card__image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-card__overlay">
@@ -30,6 +36,8 @@
 </template>
 
 <script setup>
+const { setRef } = useRevealGroup()
+
 const projects = [
   {
     id: 1,

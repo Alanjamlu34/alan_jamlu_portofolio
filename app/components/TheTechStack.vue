@@ -2,11 +2,17 @@
   <section id="skills" class="skills">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title text-gradient">Tech Stack</h2>
-        <p class="section-subtitle">The tools and technologies I use to bring ideas to life.</p>
+        <h2 :ref="setRef" class="section-title text-gradient reveal">Tech Stack</h2>
+        <p :ref="setRef" class="section-subtitle reveal stagger-1">The tools and technologies I use to bring ideas to life.</p>
       </div>
       <div class="skills__grid">
-        <div v-for="(skill, index) in skills" :key="skill.name" class="skill-card" :class="'skill-card--' + skill.tint">
+        <div
+          v-for="(skill, index) in skills"
+          :key="skill.name"
+          :ref="setRef"
+          class="skill-card reveal reveal-scale"
+          :class="['skill-card--' + skill.tint, 'stagger-' + (index + 2)]"
+        >
           <div class="skill-card__icon-wrap">
             <img :src="skill.iconUrl" alt="icon" class="skill-card__icon-img" />
           </div>
@@ -18,6 +24,8 @@
 </template>
 
 <script setup>
+const { setRef } = useRevealGroup()
+
 const skills = [
   { name: 'JavaScript (Vue/Nuxt)', tint: 'mint', iconUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=200&h=200&fit=crop' },
   { name: 'Python (Flask)', tint: 'lavender', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/500px-Python-logo-notext.svg.png' },

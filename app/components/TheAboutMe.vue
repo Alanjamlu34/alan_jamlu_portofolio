@@ -1,7 +1,7 @@
 <template>
   <section id="about" class="about">
     <div class="container about__grid">
-      <div class="about__image-container flow-in">
+      <div :ref="setRef" class="about__image-container reveal reveal-left">
         <div class="about__image">
           <img src="../public/profile.jpg" alt="Alan Jamlu Profile" class="img-fluid" />
         </div>
@@ -11,16 +11,16 @@
         </div>
       </div>
       <div class="about__content">
-        <h2 class="section-title text-gradient flow-in">About Me</h2>
-        <p class="about__description flow-in">
+        <h2 :ref="setRef" class="section-title text-gradient reveal stagger-1">About Me</h2>
+        <p :ref="setRef" class="about__description reveal stagger-2">
           I'm a Web Developer with a passion for building clean, efficient, and user-friendly web solutions using <span class="underline">Nuxt.js</span> and <span class="underline">Vue.js</span>. My journey in tech is driven by an obsession with <span class="highlight">Frontend Perfection</span>.
         </p>
         <div class="about__stats">
-          <div class="stat-item stat-item--lavender flow-in">
+          <div :ref="setRef" class="stat-item stat-item--lavender reveal reveal-scale stagger-3">
             <span class="stat-label">Clients</span>
             <span class="stat-value">5+</span>
           </div>
-          <div class="stat-item stat-item--orange flow-in flow-stagger-1">
+          <div :ref="setRef" class="stat-item stat-item--orange reveal reveal-scale stagger-4">
             <span class="stat-label">Projects</span>
             <span class="stat-value">12+</span>
           </div>
@@ -29,6 +29,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { setRef } = useRevealGroup()
+</script>
 
 <style scoped>
 .about__grid {
