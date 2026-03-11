@@ -14,6 +14,7 @@
     </main>
     <TheFooter />
     <TheChat />
+    <AnonMessagePopup />
   </div>
 </template>
 
